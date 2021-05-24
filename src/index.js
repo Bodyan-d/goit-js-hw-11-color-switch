@@ -16,20 +16,26 @@ const colors = [
 ];
 
 function onStartSwitchColors() {
+
     if (!isSwitching) {
+        startBtnRef.disabled = true;
         intervalId = setInterval(() => {
             const randomColorIndex = randomIntegerFromInterval(0, colors.length - 1);
             const randomColorItem = colors[randomColorIndex];
 
             document.body.style.background = randomColorItem;
-            isSwitching = true
+            isSwitching = true;
+
+
         }, 1000);
     };
 
 };
 
 function onStopSwitchColors() {
+
     if (isSwitching) {
+        startBtnRef.disabled = false;
         isSwitching = false;
         clearInterval(intervalId);
     }
